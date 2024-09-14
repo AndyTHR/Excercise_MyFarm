@@ -2619,6 +2619,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: be50ba64c61edb944abbd01f4a79914b, type: 2}
   - {fileID: 11400000, guid: a9413048ccdfc07429c1a835885dbca6, type: 2}
   - {fileID: 11400000, guid: 13a41feaadde6f1428a58eb1c6b8f581, type: 2}
+  lstb_CanHarvest:
+  - {fileID: 11400000, guid: 13a41feaadde6f1428a58eb1c6b8f581, type: 2}
   mapManager: {fileID: 1734114619}
 --- !u!1 &466065512
 GameObject:

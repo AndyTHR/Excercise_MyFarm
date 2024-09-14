@@ -15,6 +15,7 @@ public class PlayerFarmController : MonoBehaviour
     public TileBase tb_Grass;
     public TileBase tb_Forest;
     public List<TileBase> lstb_RiceTree;
+    public List<TileBase> lstb_CanHarvest;
     private RecyclableInventory recyclableInventory;
     
     public TileMapManager mapManager;
@@ -66,7 +67,7 @@ public class PlayerFarmController : MonoBehaviour
             Debug.Log("Cell Pos" + cellPos);
 
             TileBase crrTileBase = tm_Forest.GetTile(cellPos);
-            if(crrTileBase != null)
+            if(lstb_CanHarvest.Contains(crrTileBase))
             {
                 tm_Grass.SetTile(cellPos, tb_Grass);
                 tm_Forest.SetTile(cellPos, null);
