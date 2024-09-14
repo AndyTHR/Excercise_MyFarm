@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1025187876020",
+    "firebase_url": "https://excirecisemyfarm-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "excirecisemyfarm",
+    "storage_bucket": "excirecisemyfarm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025187876020:android:d5854f86d1e12d23829be1",
+        "android_client_info": {
+          "package_name": "com.excercisemyfarm.game2d"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKFGb7frCPkMR5tQPIwIBrRors_mR2b5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
