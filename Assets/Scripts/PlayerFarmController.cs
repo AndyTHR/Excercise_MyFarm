@@ -14,7 +14,7 @@ public class PlayerFarmController : MonoBehaviour
     public TileBase tb_Ground;
     public TileBase tb_Grass;
     public TileBase tb_Forest;
-
+    public List<TileBase> lstb_RiceTree;
     private RecyclableInventory recyclableInventory;
     
     public TileMapManager mapManager;
@@ -55,7 +55,8 @@ public class PlayerFarmController : MonoBehaviour
             TileBase crrTileBase = tm_Grass.GetTile(cellPos);
             if(crrTileBase == null)
             {
-                tm_Forest.SetTile(cellPos, tb_Forest);
+                //tm_Forest.SetTile(cellPos, tb_Forest);
+                StartCoroutine(GrowPlant(cellPos, tm_Forest, lstb_RiceTree));
                 mapManager.SetStateForTileMapDetail(cellPos.x, cellPos.y, TileMapState.Forest);
             }
         }
@@ -79,5 +80,15 @@ public class PlayerFarmController : MonoBehaviour
                 mapManager.SetStateForTileMapDetail(cellPos.x, cellPos.y, TileMapState.Grass);
             }    
         }
+    }    
+    IEnumerator GrowPlant(Vector3Int cellpos, Tilemap tilemap, List<TileBase> lsttilebase)
+    {
+        int crrstage = 0;
+        while (crrstage < lsttilebase.Count)
+        {
+            tilemap.SetTile(cellpos, lsttilebase[crrstage]);
+            yield return new WaitForSeconds(5);
+            crrstage++;
+        }    
     }    
 }
