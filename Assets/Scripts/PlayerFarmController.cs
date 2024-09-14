@@ -67,18 +67,17 @@ public class PlayerFarmController : MonoBehaviour
             Debug.Log("Cell Pos" + cellPos);
 
             TileBase crrTileBase = tm_Forest.GetTile(cellPos);
-            if(lstb_CanHarvest.Contains(crrTileBase))
+            if(crrTileBase == lstb_RiceTree[4])
             {
                 tm_Grass.SetTile(cellPos, tb_Grass);
                 tm_Forest.SetTile(cellPos, null);
 
-                InvenItems itemFlower = new InvenItems();
-                itemFlower.name = "Hoa 1 gio";
-                itemFlower.description = "Hoa trang tri";
+                InvenItems Item_Ricetree = new InvenItems();
+                Item_Ricetree.name = "Bi do";
+                Item_Ricetree.description = "Bi do an rat ngon";
 
-                Debug.Log(itemFlower.ToString());
-                recyclableInventory.AddInventoryItem(itemFlower);
-                mapManager.SetStateForTileMapDetail(cellPos.x, cellPos.y, TileMapState.Grass);
+                recyclableInventory.AddInventoryItem(Item_Ricetree);
+                mapManager.SetStateForTileMapDetail(cellPos.x, cellPos.y, TileMapState.Pumpkin);
             }    
         }
     }    

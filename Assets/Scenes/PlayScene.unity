@@ -7631,7 +7631,8 @@ MonoBehaviour:
   tm_Ground: {fileID: 847929775}
   tm_Grass: {fileID: 307038646}
   tm_Forest: {fileID: 540306777}
-  tb_forest: {fileID: 11400000, guid: 45229c06f5c36af4fb84cc68e66b10d9, type: 2}
+  tb_pumpkin: {fileID: 11400000, guid: 13a41feaadde6f1428a58eb1c6b8f581, type: 2}
+  tb_forest: {fileID: 11400000, guid: b96ea1a9364fb4e45904175d22a71709, type: 2}
 --- !u!1 &1744653661
 GameObject:
   m_ObjectHideFlags: 0

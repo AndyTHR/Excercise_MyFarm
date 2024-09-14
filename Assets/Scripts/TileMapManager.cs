@@ -14,7 +14,7 @@ public class TileMapManager : MonoBehaviour
     public Tilemap tm_Ground;
     public Tilemap tm_Grass;
     public Tilemap tm_Forest;
-
+    public TileBase tb_pumpkin;
     public TileBase tb_forest;
 
 
@@ -75,6 +75,11 @@ public class TileMapManager : MonoBehaviour
         {
             tm_Grass.SetTile(cellPos, null);
             tm_Forest.SetTile(cellPos, tb_forest);
+        }   
+        else if (tileMapDetail.tileMapState == TileMapState.Pumpkin)
+        {
+            tm_Grass.SetTile(cellPos, null);
+            tm_Forest.SetTile(cellPos, tb_pumpkin);
         }    
     }    
 
