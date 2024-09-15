@@ -81,7 +81,7 @@ public class PlayerFarmController : MonoBehaviour
             }    
         }
     }    
-    IEnumerator GrowPlant(Vector3Int cellpos, Tilemap tilemap, List<TileBase> lsttilebase)
+    public IEnumerator GrowPlant(Vector3Int cellpos, Tilemap tilemap, List<TileBase> lsttilebase)
     {
         int crrstage = 0;
         while (crrstage < lsttilebase.Count)

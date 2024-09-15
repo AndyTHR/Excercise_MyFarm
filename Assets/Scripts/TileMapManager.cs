@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Firebase;
@@ -14,9 +15,9 @@ public class TileMapManager : MonoBehaviour
     public Tilemap tm_Ground;
     public Tilemap tm_Grass;
     public Tilemap tm_Forest;
-    public TileBase tb_pumpkin;
+    public List<TileBase> lstb_pumpkin;
     public TileBase tb_forest;
-
+    public PlayerFarmController playerFarmController;
 
 
     private FirebaseDatabaseManager databaseManager;
@@ -45,7 +46,7 @@ public class TileMapManager : MonoBehaviour
         {
             for(int y = tm_Ground.cellBounds.min.y; y < tm_Ground.cellBounds.max.y; y++)
             {
-                TileMapDetail tm_detail = new TileMapDetail(x, y, TileMapState.Grass);
+                TileMapDetail tm_detail = new TileMapDetail(x, y, TileMapState.Grass, DateTime.Now);
                 tileMaps.Add(tm_detail);
             } 
                 
@@ -78,8 +79,30 @@ public class TileMapManager : MonoBehaviour
         }   
         else if (tileMapDetail.tileMapState == TileMapState.Pumpkin)
         {
+            double elapsedTime = DateTime.Now.Subtract(tileMapDetail.GrowTime).TotalSeconds;
             tm_Grass.SetTile(cellPos, null);
-            tm_Forest.SetTile(cellPos, tb_pumpkin);
+            if(elapsedTime > 20)
+            {
+                tm_Forest.SetTile(cellPos, lstb_pumpkin[4]);
+
+            }
+            else if(elapsedTime > 15)
+            {
+                tm_Forest.SetTile(cellPos, lstb_pumpkin[3]);
+                playerFarmController.StartCoroutine(playerFarmController.GrowPlant(cellPos, tm_Forest, lstb_pumpkin.GetRange(3, 2)));
+            }
+            else if (elapsedTime > 10)
+            {
+                tm_Forest.SetTile(cellPos, lstb_pumpkin[2]);
+            }
+            else if (elapsedTime > 5)
+            {
+                tm_Forest.SetTile(cellPos, lstb_pumpkin[1]);
+            }
+            else
+            {
+                tm_Forest.SetTile(cellPos, lstb_pumpkin[0]);
+            }
         }    
     }    
 
@@ -100,6 +123,7 @@ public class TileMapManager : MonoBehaviour
            if (LoadDataManager.userInGame.MapInGame.lstTileMapDetail[i].x == x && LoadDataManager.userInGame.MapInGame.lstTileMapDetail[i].y == y)
             {
                 LoadDataManager.userInGame.MapInGame.lstTileMapDetail[i].tileMapState = state;
+                LoadDataManager.userInGame.MapInGame.lstTileMapDetail[i].GrowTime = DateTime.Now;
                 databaseManager.WriteDatabase("Users/" + LoadDataManager.firebaseUser.UserId, LoadDataManager.userInGame.ToString());
 
             }    
