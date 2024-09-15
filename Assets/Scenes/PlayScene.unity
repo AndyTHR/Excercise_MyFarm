@@ -2612,7 +2612,7 @@ MonoBehaviour:
   tm_Forest: {fileID: 540306777}
   tb_Ground: {fileID: 11400000, guid: b9353ac317438a242a89c8c2e48b54b0, type: 2}
   tb_Grass: {fileID: 11400000, guid: a921f76141dfdf64381cfec6f1af88c6, type: 2}
-  tb_Forest: {fileID: 0}
+  tb_Forest: {fileID: 11400000, guid: 13a41feaadde6f1428a58eb1c6b8f581, type: 2}
   lstb_RiceTree:
   - {fileID: 11400000, guid: f4997e84ddf82fe4194baba7c9c47961, type: 2}
   - {fileID: 11400000, guid: 65fd352a6aec4914188f9038e3eced68, type: 2}
@@ -7817,7 +7817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1764219236
 RectTransform:
   m_ObjectHideFlags: 0
