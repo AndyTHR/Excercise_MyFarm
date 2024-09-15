@@ -19,8 +19,8 @@ public class DayAndNightManager : MonoBehaviour
         realSecondInDay = (realSecondInDay * dayMultiplier) % 86400;
         //float gameTimeSeconds = (realSecondInDay/ (24*3600)) * (dayDuaration * 60);
         int gameHour = Mathf.FloorToInt(realSecondInDay / 3600);
-        int gameMinutes = Mathf.FloorToInt((realSecondInDay * 60)/ 60);
-        string timeformatted = string.Format($"{0:00}:{ 1:00}", gameHour, gameMinutes);
+        int gameMinutes = Mathf.FloorToInt((realSecondInDay % 3600)/ 60);
+        string timeformatted = string.Format("{0:00} : {1:00}", gameHour, gameMinutes);
         textTimeInGame.text = timeformatted;
 
         ChangeColorByTime(realSecondInDay);

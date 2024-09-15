@@ -67,6 +67,7 @@ public class FireBaseLoginManager : MonoBehaviour
                 User userInGame = new User("",100, 50,mapInGame);
                 FirebaseUser FirebaseUser = task.Result.User;
                 databaseManager.WriteDatabase("Users/" + FirebaseUser.UserId, userInGame.ToString());
+                LoadingManager.NEXTSCENE = "PlayScene"; 
                 SceneManager.LoadScene("FakeLoading");
             }
 
@@ -93,6 +94,7 @@ public class FireBaseLoginManager : MonoBehaviour
             {
                 Debug.Log("Dang nhap thanh cong");
 
+                LoadingManager.NEXTSCENE = "PlayScene";
                 SceneManager.LoadScene("FakeLoading");
             }
         });
